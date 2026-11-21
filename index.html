@@ -1,10 +1,446 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Namrata's Website</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urdu with Miss N — videos by topic</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+  body {
+    margin: 0; padding: 30px 20px 70px;
+    font: 16px/1.45 -apple-system, "Segoe UI", "Nirmala UI", "Noto Nastaliq Urdu", Roboto, Helvetica, Arial, sans-serif;
+    background: #f6f7f9; color: #14181f;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 5px; font-weight: 650; letter-spacing: -0.01em; }
+  .sub { font-size: 13px; color: #63707f; margin: 0 0 18px; }
+  .sub a { color: #1456b8; text-decoration: none; }
+  .sub a:hover { text-decoration: underline; }
+  .intro-text { margin: 0 0 20px; max-width: 72ch; }
+  .intro-text h2 { font-size: 18px; margin: 0 0 11px; font-weight: 650; letter-spacing: -0.01em; }
+  .intro-text p { font-size: 14px; line-height: 1.58; color: #2b3644; margin: 0 0 11px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+  .intro-text em { font-style: italic; }
+  .tagline { color: #1456b8; font-weight: 600; }
+  .cta { margin: 0 0 0; }
+  .cta a {
+    display: inline-block; text-decoration: none; font-size: 13.5px; font-weight: 600;
+    color: #fff; background: #1456b8; border-radius: 999px; padding: 9px 16px;
+    transition: background .12s;
+  }
+  .cta a:hover { background: #0f4796; }
+  .contact { font-size: 13px; color: #63707f; margin: 9px 0 20px 2px; }
+  .contact a { color: #1456b8; text-decoration: none; font-weight: 500; }
+  .contact a:hover { text-decoration: underline; }
+  #q {
+    width: 100%; padding: 11px 14px; font-size: 15px;
+    border: 1px solid #cfd6de; border-radius: 9px; background: #fff; color: inherit;
+  }
+  #q:focus { outline: 2px solid #9dc0f0; outline-offset: -1px; border-color: #86aee6; }
+  .count { font-size: 12px; color: #63707f; margin: 9px 0 0 2px; }
+  nav.chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 18px 0 6px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 13px; text-decoration: none; color: #24303d;
+    background: #fff; border: 1px solid #e0e5ec; border-radius: 999px;
+    padding: 6px 12px 6px 7px; transition: background .12s, border-color .12s;
+  }
+  .chip:hover { background: #eef4fd; border-color: #bcd4f5; }
+  .cn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 19px; height: 19px; border-radius: 50%;
+    background: #1456b8; color: #fff; font-size: 11px; font-weight: 600;
+  }
+  .cc { font-size: 11px; color: #8a95a3; font-variant-numeric: tabular-nums; }
+  section.group { margin-top: 34px; }
+  .gh { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 11px; }
+  .gh .num {
+    flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 50%; margin-top: 1px;
+    background: #1456b8; color: #fff; font-size: 13px; font-weight: 600;
+  }
+  .gh h2 { font-size: 16px; margin: 0; font-weight: 650; letter-spacing: -0.005em; }
+  .blurb { font-size: 12.5px; color: #63707f; margin: 3px 0 0; }
+  .gcount { margin-left: auto; font-size: 12px; color: #8a95a3; white-space: nowrap; padding-top: 5px; }
+  .list { display: flex; flex-direction: column; gap: 2px; }
+  .row {
+    display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px;
+    padding: 9px 13px; border-radius: 7px; text-decoration: none; color: inherit;
+    background: #fff; border: 1px solid #e4e8ee; transition: background .1s, border-color .1s;
+  }
+  .row:hover { background: #eef4fd; border-color: #bcd4f5; }
+  .row.hide { display: none; }
+  .t { font-size: 15px; }
+  .row:hover .t { color: #1456b8; }
+  .d { font-size: 12px; color: #8a95a3; font-variant-numeric: tabular-nums; }
+  section.group.hide { display: none; }
+  .empty { display: none; font-size: 14px; color: #63707f; margin-top: 30px; }
+  .empty.show { display: block; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #101419; color: #e6eaf0; }
+    .row, .chip { background: #171c23; border-color: #242b34; color: #e6eaf0; }
+    .row:hover, .chip:hover { background: #1d2733; border-color: #33506f; }
+    #q { background: #171c23; border-color: #2a323c; }
+    .cta a { background: #2a6fd0; color: #fff; }
+    .cta a:hover { background: #3b82e0; }
+    .sub, .count, .blurb, .gcount, .d, .cc, .contact { color: #8b98a7; }
+    .contact a { color: #7aa7e8; }
+    .intro-text p { color: #c9d2dc; }
+    .tagline { color: #7aa7e8; }
+  }
+</style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my new website hosted on GitHub Pages.</p>
+<div class="wrap">
+  <h1>Urdu with Miss N — videos by topic</h1>
+  <p class="sub"><a href="https://www.youtube.com/@UrduwithMissN" target="_blank" rel="noopener">@UrduwithMissN</a> &nbsp;·&nbsp; 54 videos in 7 groups &nbsp;·&nbsp; pulled 2026-11-10</p>
+  <div class="intro-text">
+    <h2>Welcome to Urdu with Miss N!</h2>
+    <p>Urdu with Miss N is a learning platform designed to help you learn Urdu step by step, from the basics to everyday conversations. Through easy-to-follow video lessons, you can explore Urdu vocabulary, the alphabet, reading, writing, grammar, and practical conversations.</p>
+    <p>This website brings all the YouTube lessons together in one place, along with worksheets and practice materials to help you revise and improve your skills.</p>
+    <p>Whether you're a complete beginner, a non-native Urdu learner, a student, or someone who wants to reconnect with the language, you'll find useful resources to build your confidence and learn at your own pace.</p>
+    <p><em>Would you like personalised guidance?</em> You can also visit my Preply profile through the link on this website to book one-to-one Urdu lessons.</p>
+    <p><em class="tagline">Learn Urdu. Speak Urdu. Love Urdu.</em></p>
+  </div>
+  <p class="cta"><a href="https://preply.in/NAMRA6EN13604862102?ts=17943244" target="_blank" rel="noopener">Book a lesson with Miss Namra on Preply →</a></p>
+  <p class="contact">Or email <a href="mailto:NamraTahir123@gmail.com">NamraTahir123@gmail.com</a></p>
+  <input id="q" type="search" placeholder="Filter all 54 videos by title…" autocomplete="off" autofocus>
+  <p class="count" id="count">54 videos shown</p>
+  <nav class="chips">
+    <a class="chip" href="#g0"><span class="cn">0</span>Urdu Alphabet Primer<span class="cc">1</span></a>
+    <a class="chip" href="#g1"><span class="cn">1</span>First Basic Lesson Set - Alphabet and Vowels<span class="cc">10</span></a>
+    <a class="chip" href="#g2"><span class="cn">2</span>Letter Sounds for Kids<span class="cc">10</span></a>
+    <a class="chip" href="#g3"><span class="cn">3</span>Vocabulary &amp; Everyday Words<span class="cc">21</span></a>
+    <a class="chip" href="#g4"><span class="cn">4</span>Conversation Practice<span class="cc">4</span></a>
+    <a class="chip" href="#g5"><span class="cn">5</span>Tenses &amp; Grammar<span class="cc">7</span></a>
+    <a class="chip" href="#g6"><span class="cn">6</span>Reading Practice<span class="cc">1</span></a>
+  </nav>
+  <p class="empty" id="empty">No videos match that filter.</p>
+  <section class="group" id="g0">
+    <div class="gh">
+      <span class="num">0</span>
+      <div>
+        <h2>Urdu Alphabet Primer</h2>
+        <p class="blurb">Category 0 — the 48 Urdu sounds with examples: stand-alone starting point</p>
+      </div>
+      <span class="gcount">1 video</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=nADbVMD5EFI" target="_blank" rel="noopener">
+        <span class="t">Urdu Alphabet Primer | Practice 48 Urdu Sounds with Examples</span>
+        <span class="d">4:47</span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g1">
+    <div class="gh">
+      <span class="num">1</span>
+      <div>
+        <h2>First Basic Lesson Set - Alphabet and Vowels</h2>
+        <p class="blurb">Lessons 1–10: letter shapes, initial/medial/final forms, alif sounds, vowels</p>
+      </div>
+      <span class="gcount">10 videos</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=ZwdOT2UyPRA" target="_blank" rel="noopener">
+        <span class="t">Lesson 1 | Urdu Alphabet: ا ب پ ت</span>
+        <span class="d">1:22</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=RpyQKxFhtmg" target="_blank" rel="noopener">
+        <span class="t">Lesson 2 | Different Sounds of Alif | ا، اَ، اِ، اُ، آ</span>
+        <span class="d">0:50</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=ApDznIuJkJ8" target="_blank" rel="noopener">
+        <span class="t">Lesson 3 | Urdu Alphabet Initial Forms</span>
+        <span class="d">2:49</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=H_yVwe61cxI" target="_blank" rel="noopener">
+        <span class="t">Lesson 4 | Urdu Alphabet Medial Forms</span>
+        <span class="d">2:43</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=liMZnxiuRMA" target="_blank" rel="noopener">
+        <span class="t">Lesson 5 | Urdu Alphabet Final Forms</span>
+        <span class="d">3:06</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=q0fpBetimaE" target="_blank" rel="noopener">
+        <span class="t">Lesson 6 | Urdu Vowels &amp; Vowel Sounds</span>
+        <span class="d">1:01</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=XyuGQvAaULo" target="_blank" rel="noopener">
+        <span class="t">Lesson 7 | Alif in Urdu Words | Initial, Medial &amp; Final Sounds</span>
+        <span class="d">1:15</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=s3e5np68ieE" target="_blank" rel="noopener">
+        <span class="t">Lesson 8 | Wao in Urdu Words | Initial, Medial &amp; Final Sounds</span>
+        <span class="d">1:17</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=f3XrA2kRJH0" target="_blank" rel="noopener">
+        <span class="t">Lesson 9 | Choti Yeh in Urdu Words | Initial, Medial &amp; Final Sounds</span>
+        <span class="d">1:13</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=87HE_1YLZGQ" target="_blank" rel="noopener">
+        <span class="t">Lesson 10 | Bari Yeh in Urdu Words | Initial, Medial &amp; Final Sounds</span>
+        <span class="d">1:21</span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g2">
+    <div class="gh">
+      <span class="num">2</span>
+      <div>
+        <h2>Letter Sounds for Kids</h2>
+        <p class="blurb">The ten “X se banne wale alfaz” reading videos for kids</p>
+      </div>
+      <span class="gcount">10 videos</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=4NJVFIHPezg" target="_blank" rel="noopener">
+        <span class="t">Alif Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:59</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=6VqKEPywfQ4" target="_blank" rel="noopener">
+        <span class="t">Bay Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">1:15</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=ouc3o_h5LQQ" target="_blank" rel="noopener">
+        <span class="t">Tay Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:22</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=jij9qDNij3g" target="_blank" rel="noopener">
+        <span class="t">Te Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:34</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=MeyvqyQjJmU" target="_blank" rel="noopener">
+        <span class="t">Jeem Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:48</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=phd58JFYfyA" target="_blank" rel="noopener">
+        <span class="t">Chay Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:50</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=d9MApAiMJJ0" target="_blank" rel="noopener">
+        <span class="t">Daal Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">1:01</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=bWbnESVDhHA" target="_blank" rel="noopener">
+        <span class="t">Seen Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:57</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=t5vZ2J6nLzg" target="_blank" rel="noopener">
+        <span class="t">Meem Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:36</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=S2N6_aCGg08" target="_blank" rel="noopener">
+        <span class="t">Choti Hay Se Banne Wale Alfaz | Urdu Reading for Kids</span>
+        <span class="d">0:37</span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g3">
+    <div class="gh">
+      <span class="num">3</span>
+      <div>
+        <h2>Vocabulary &amp; Everyday Words</h2>
+        <p class="blurb">Nouns, verbs and word lists — topics, household, body, people, numbers</p>
+      </div>
+      <span class="gcount">21 videos</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=t05TZtDmYPI" target="_blank" rel="noopener">
+        <span class="t">4 Directions in Urdu | North, South, East &amp; West | Learn Urdu</span>
+        <span class="d">0:23</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=12CfYIQhPHw" target="_blank" rel="noopener">
+        <span class="t">City Names in Urdu | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">1:59</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=STi7yxvhk6o" target="_blank" rel="noopener">
+        <span class="t">Clothes Vocabulary in Urdu | Learn Urdu Words in Sentences</span>
+        <span class="d">1:57</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=LTvYbF6K1vc" target="_blank" rel="noopener">
+        <span class="t">Colours Names in Urdu | Learn Urdu Vocabulary for Kids</span>
+        <span class="d">1:56</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=uSlLpRR-50M" target="_blank" rel="noopener">
+        <span class="t">Continents in Urdu | Names &amp; Pronunciation | Learn Urdu</span>
+        <span class="d">2:19</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=J3moJIWKELc" target="_blank" rel="noopener">
+        <span class="t">Cooking Verbs in Urdu | Learn Urdu Vocabulary (Part 1)</span>
+        <span class="d">2:20</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=Fe6ZX9_8XPM" target="_blank" rel="noopener">
+        <span class="t">Daily Routine Phrases &amp; Sentences | Learn Urdu</span>
+        <span class="d">4:04</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=19Sn9O2RHzw" target="_blank" rel="noopener">
+        <span class="t">Daily Routine Vocabulary | Learn Urdu</span>
+        <span class="d">4:34</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=Y3SZlQOwSfI" target="_blank" rel="noopener">
+        <span class="t">Describing People in Urdu | Personality &amp; Character (Part 2)</span>
+        <span class="d">1:47</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=z56CWTclIBw" target="_blank" rel="noopener">
+        <span class="t">Describing People in Urdu | Physical Appearance (Part 1)</span>
+        <span class="d">2:35</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=eo5QGp_mcdk" target="_blank" rel="noopener">
+        <span class="t">Family Members Vocabulary in Urdu | Learn Urdu</span>
+        <span class="d">4:46</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=oWvJ-Jq2TgU" target="_blank" rel="noopener">
+        <span class="t">Family Members Vocabulary in Urdu | Learn Urdu</span>
+        <span class="d">5:41</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=seThTaHDnto" target="_blank" rel="noopener">
+        <span class="t">Feelings and Emotions in Urdu | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">1:47</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=OWMbS59FIoY" target="_blank" rel="noopener">
+        <span class="t">Fruit Names in Urdu | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">1:05</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=-STG9v32GNk" target="_blank" rel="noopener">
+        <span class="t">Household Items in Urdu | Part 1 | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">1:47</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=hMZbQFvb5zE" target="_blank" rel="noopener">
+        <span class="t">Kitchen Vocabulary in Urdu | Learn Urdu Words for Beginners</span>
+        <span class="d">1:39</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=Zfq4B3K5Qt4" target="_blank" rel="noopener">
+        <span class="t">Parts of the Body in Urdu | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">3:19</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=rE0P-4jn-Wc" target="_blank" rel="noopener">
+        <span class="t">Provinces of Pakistan in Urdu | Learn Urdu Vocabulary</span>
+        <span class="d">1:20</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=qtiwjsb6TT4" target="_blank" rel="noopener">
+        <span class="t">Seasons in Urdu | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">1:13</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=rcbb7SIxH38" target="_blank" rel="noopener">
+        <span class="t">Urdu Counting 1 to 20 | Learn Urdu Numbers</span>
+        <span class="d">2:32</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=yKgv-HILHhc" target="_blank" rel="noopener">
+        <span class="t">Vegetable Names in Urdu | Learn Urdu Vocabulary for Beginners</span>
+        <span class="d">1:01</span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g4">
+    <div class="gh">
+      <span class="num">4</span>
+      <div>
+        <h2>Conversation Practice</h2>
+        <p class="blurb">Spoken dialogues and role plays</p>
+      </div>
+      <span class="gcount">4 videos</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=GjUFWAKWbrM" target="_blank" rel="noopener">
+        <span class="t">Easy Urdu Role Play for Beginners | Urdu Conversation Practice</span>
+        <span class="d">0:49</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=JWvFFnDwtQM" target="_blank" rel="noopener">
+        <span class="t">Learn Urdu Through Conversation | Making Plans for Coffee | Urdu for Beginners</span>
+        <span class="d">1:06</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=cQIs8szTPNk" target="_blank" rel="noopener">
+        <span class="t">Learn Urdu Through Conversation | Making Plans with a Friend | Urdu for Beginners</span>
+        <span class="d">1:11</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=7QhX-j1DWl0" target="_blank" rel="noopener">
+        <span class="t">Learn Urdu Through Conversation | Meeting Someone for the First Time | Urdu for Beginners</span>
+        <span class="d">1:35</span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g5">
+    <div class="gh">
+      <span class="num">5</span>
+      <div>
+        <h2>Tenses &amp; Grammar</h2>
+        <p class="blurb">Present, past and future — simple and continuous — plus question words</p>
+      </div>
+      <span class="gcount">7 videos</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=SJvByQZWNKg" target="_blank" rel="noopener">
+        <span class="t">Question Words in Urdu | Learn Urdu Grammar for Beginners</span>
+        <span class="d">3:06</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=4rBZqrUBB-c" target="_blank" rel="noopener">
+        <span class="t">Future Continuous Tense in Urdu | Learn Urdu</span>
+        <span class="d">2:25</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=LO2plm8pgU8" target="_blank" rel="noopener">
+        <span class="t">Simple Future Tense in Urdu | Learn Urdu</span>
+        <span class="d">2:10</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=frBs3VvYhpI" target="_blank" rel="noopener">
+        <span class="t">Simple Past Tense in Urdu | Learn Urdu</span>
+        <span class="d">2:16</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=0PS5xGnqevA" target="_blank" rel="noopener">
+        <span class="t">Past Continuous Tense in Urdu | Learn Urdu</span>
+        <span class="d">2:29</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=QI0NxtiO5o4" target="_blank" rel="noopener">
+        <span class="t">Present Continuous Tense in Urdu | Learn Urdu</span>
+        <span class="d">2:51</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=fHr66B6xK30" target="_blank" rel="noopener">
+        <span class="t">Simple Present Tense in Urdu | Learn Urdu</span>
+        <span class="d">3:07</span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g6">
+    <div class="gh">
+      <span class="num">6</span>
+      <div>
+        <h2>Reading Practice</h2>
+        <p class="blurb">Longer reading and pronunciation passages</p>
+      </div>
+      <span class="gcount">1 video</span>
+    </div>
+    <div class="list">
+      <a class="row" href="https://www.youtube.com/watch?v=Z7kPtAA-M_k" target="_blank" rel="noopener">
+        <span class="t">Urdu Reading Practice for Intermediate Learners | Vocabulary &amp; Pronunciation</span>
+        <span class="d">3:04</span>
+      </a>
+    </div>
+  </section>
+</div>
+<script>
+  const q = document.getElementById('q');
+  const rows = [...document.querySelectorAll('.row')];
+  const sections = [...document.querySelectorAll('section.group')];
+  const count = document.getElementById('count');
+  const empty = document.getElementById('empty');
+  const total = rows.length;
+  q.addEventListener('input', function () {
+    const s = q.value.trim().toLowerCase();
+    let shown = 0;
+    rows.forEach(function (r) {
+      const hit = !s || r.textContent.toLowerCase().includes(s);
+      r.classList.toggle('hide', !hit);
+      if (hit) shown++;
+    });
+    sections.forEach(function (sec) {
+      sec.classList.toggle('hide', sec.querySelectorAll('.row:not(.hide)').length === 0);
+    });
+    count.textContent = s ? shown + ' of ' + total + ' videos shown' : total + ' videos shown';
+    empty.classList.toggle('show', shown === 0);
+  });
+</script>
 </body>
 </html>
+
