@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namra Tahir — Digital Business Card</title>
+
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #38bdf8;
+  --accent-2: #a78bfa;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, #1e293b, #0f172a 70%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(145deg, #1e293b, #111827);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--accent-2), transparent 70%);
+  opacity: 0.35;
+  filter: blur(30px);
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 26px;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
+}
+
+.role {
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.5;
+  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 22px 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  background: rgba(56,189,248,0.12);
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.icon {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+}
+
+.label {
+  flex: 1;
+}
+
+.label small {
+  display: block;
+  color: var(--muted);
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0f172a;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    background: white;
+    color: #111;
+  }
+
+  .card::before,
+  .actions {
+    display: none;
+  }
+
+  .link {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    color: #111;
+  }
+
+  .label small {
+    color: #555;
+  }
+
+  .role {
+    color: #0369a1;
+  }
+
+  .tagline {
+    color: #444;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="avatar">NT</div>
+
+  <h1>Namra Tahir</h1>
+
+  <div class="role">Educator · Urdu Language</div>
+
+  <p class="tagline">
+    Teaching Urdu with clarity and care — one lesson at a time.
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="links">
+
+    <!-- Email -->
+    <a class="link" href="mailto:namratahir123@gmail.com">
+      <span class="icon">✉️</span>
+      <span class="label">
+        Email
+        <small>namratahir123@gmail.com</small>
+      </span>
+    </a>
+
+    <!-- Preply -->
+    <a class="link"
+       href="https://preply.in/NAMRA6EN13604862102?ts=17953544"
+       target="_blank"
+       rel="noopener">
+      <span class="icon">🎓</span>
+      <span class="label">
+        Preply
+        <small>Book an Urdu lesson with me</small>
+      </span>
+    </a>
+
+    <!-- YouTube -->
+    <a class="link"
+       href="https://www.youtube.com/@UrduwithMissN"
+       target="_blank"
+       rel="noopener">
+      <span class="icon">▶️</span>
+      <span class="label">
+        YouTube
+        <small>@UrduwithMissN</small>
+      </span>
+    </a>
+
+    <!-- Website -->
+    <a class="link"
+       href="https://namratahir123.github.io/"
+       target="_blank"
+       rel="noopener">
+      <span class="icon">🌐</span>
+      <span class="label">
+        Website
+        <small>namratahir123.github.io</small>
+      </span>
+    </a>
+
+  </div>
+
+  <div class="actions">
+
+    <a class="btn btn-primary"
+       href="mailto:namratahir123@gmail.com">
+      Send Email
+    </a>
+
+    <button class="btn btn-ghost" onclick="window.print()">
+      Save as PDF
+    </button>
+
+  </div>
+
+</div>
+
+</body>
+</html>
