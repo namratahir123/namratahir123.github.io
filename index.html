@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -340,6 +341,10 @@
         <span class="t">Days of the Week in Urdu</span>
         <span class="d">1:37</span>
       </a>
+      <a class="row resource-row" href="Days_of_the_Week_in_Urdu_Worksheet.pdf" target="_blank" rel="noopener">
+        <span class="t">Days of the Week Worksheet (PDF)</span>
+        <span class="d">PDF</span>
+      </a>
     </div>
   </section>
   <section class="group" id="g4">
@@ -433,14 +438,15 @@
   const sections = [...document.querySelectorAll('section.group')];
   const count = document.getElementById('count');
   const empty = document.getElementById('empty');
-  const total = rows.length;
+  const videoRows = rows.filter(r => !r.classList.contains('resource-row'));
+  const total = videoRows.length;
   q.addEventListener('input', function () {
     const s = q.value.trim().toLowerCase();
     let shown = 0;
     rows.forEach(function (r) {
       const hit = !s || r.textContent.toLowerCase().includes(s);
       r.classList.toggle('hide', !hit);
-      if (hit) shown++;
+      if (hit && !r.classList.contains('resource-row')) shown++;
     });
     sections.forEach(function (sec) {
       sec.classList.toggle('hide', sec.querySelectorAll('.row:not(.hide)').length === 0);
@@ -451,3 +457,4 @@
 </script>
 </body>
 </html>
+
